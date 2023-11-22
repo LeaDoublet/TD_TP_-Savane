@@ -5,6 +5,11 @@ public class Lion extends Animal{
         super(nom,"Lion" ,sexe);
     }
 
+    public void manger(){
+        System.out.println("Je mange de la viande"+" (" + nom + " " + espece.toUpperCase() + " " + sexe + ")");
+
+    }
+
     public Lion reproduire(Lion partenaire) {
         if (!this.sexe.equals(partenaire.sexe)) {
             String nomEnfant = this.nom + "_" + partenaire.nom;
@@ -18,11 +23,10 @@ public class Lion extends Animal{
     }
     public void rencontrer(Animal autreAnimal, Savane savane) {
         if (autreAnimal instanceof Lion) {
-            Lion autreLion = (Lion) autreAnimal;
 
-            if (this.sexe.equals(autreLion.sexe)) {
+            if (this.sexe.equals(autreAnimal.sexe)) {
                 // Deux lions du même sexe se battent
-                System.out.println("Combat entre lions : " + this.nom + " vs " + autreLion.nom);
+                System.out.println("Combat entre lions : " + this.nom + " vs " + autreAnimal.nom);
 
                 double probaDeuxMorts = 0.7;
 
@@ -30,17 +34,17 @@ public class Lion extends Animal{
                     // Les deux lions meurent
                     System.out.println("Les deux lions meurent");
                     savane.retirerAnimal(this);
-                    savane.retirerAnimal(autreLion);
+                    savane.retirerAnimal(autreAnimal);
                 } else {
                     // Un seul lion meurt (choisi au hasard)
                     System.out.println("Un lion meurt au hasard");
                     boolean perdant = Math.random() < 0.5;
-                    savane.retirerAnimal(perdant ? this : autreLion);
+                    savane.retirerAnimal(perdant ? this : autreAnimal);
                 }
             } else {
                 // Deux lions de sexes différents donnent naissance à un lion
-                System.out.println("Naissance d'un lion : " + this.nom + " et " + autreLion.nom);
-                String nomEnfant = this.nom + autreLion.nom + "_child";
+                System.out.println("Naissance d'un lion : " + this.nom + " et " + autreAnimal.nom);
+                String nomEnfant = this.nom + autreAnimal.nom + "_child";
                 String sexeEnfant = Math.random() < 0.5 ? "Male" : "Female";
                 Sexe sexe1 = Sexe.valueOf(sexeEnfant);
                 Lion enfant = new Lion(nomEnfant, sexe1);

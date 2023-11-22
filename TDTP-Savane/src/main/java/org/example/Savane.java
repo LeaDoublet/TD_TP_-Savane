@@ -8,8 +8,8 @@ import java.util.Random;
 public class Savane {
 
     Animal[] animaux;
-    public Savane(Animal[] animals) {
-        this.animaux = animals;
+    public Savane(ArrayList<Animal> animals) {
+        this.animaux = animals.toArray(new Animal[0]);
     }
 
     public void mangerDansLaSavane() {

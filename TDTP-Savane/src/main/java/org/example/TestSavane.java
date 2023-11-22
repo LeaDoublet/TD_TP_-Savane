@@ -21,7 +21,7 @@ public class TestSavane {
         }
 
         // Créer la Savane avec la liste d'animaux
-        Savane savane = new Savane(animaux.toArray(new Animal[0]));
+        Savane savane = new Savane(animaux);
 
 
         System.out.println("=== Manger dans la savane ===");
@@ -29,6 +29,11 @@ public class TestSavane {
 
         System.out.println("\n=== Dormir dans la savane ===");
         savane.dormirDansLaSavane();
+
+        System.out.println("#########################################");
+        System.out.println("#       BATTLE ROYALE 5O ANIMAUX        #");
+        System.out.println("##########################################");
+
 
     }
 
