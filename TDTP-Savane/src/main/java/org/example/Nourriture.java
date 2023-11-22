@@ -2,5 +2,6 @@ package org.example;
 
 public enum Nourriture {
     SALADE,
-    VIANDE
+    VIANDE,
+    ZEBRE
 }

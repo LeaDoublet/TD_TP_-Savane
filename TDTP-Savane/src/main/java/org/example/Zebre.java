@@ -3,7 +3,7 @@ package org.example;
 public class Zebre extends Animal{
 
     public Zebre(String nom, Sexe sexe) {
-        super(nom, sexe);
+        super(nom, "Zebre",sexe);
     }
 
     public Zebre reproduire(Zebre partenaire) {

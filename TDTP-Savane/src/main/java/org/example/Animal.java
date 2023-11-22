@@ -3,15 +3,21 @@ package org.example;
 public class Animal {
     String nom;
     Sexe sexe;
+    String espece;
 
-    public Animal(String nom, Sexe sexe) {
+
+    public Animal(String nom,String espece, Sexe sexe) {
         this.nom = nom;
+        this.espece=espece;
         this.sexe = sexe;
     }
-    public void manger(Nourriture nourriture){
-        System.out.println("Je m'appelle"+this.nom+"et je mange de la "+nourriture);
+    public void manger(){
+        System.out.println("Je mange " + (espece.equals("Zebre") ? "de l'herbe" : "de la viande") + " (" + nom + " " + espece.toUpperCase() + " " + sexe + ")");
+
     }
+
     public void dormir() {
-        System.out.println(this.nom + " dort");
+        System.out.println("Je dors dans la savane (" + nom + " " + espece + " " + sexe + ")");
     }
+
 }
