@@ -1,5 +1,10 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public class Savane {
 
     Animal[] animaux;
@@ -7,19 +12,6 @@ public class Savane {
         this.animaux = animals;
     }
 
-    public void ajoutAnimal(Animal animal) {
-        //Nouveau tableau avec taille + 1
-        Animal[] newAnimaux = new Animal[animaux.length + 1];
-
-        // On met elements de l'ancien tableau vers le nouveau
-        System.arraycopy(animaux, 0, newAnimaux, 0, animaux.length);
-
-        // On ajoute le nouvel animal a la fin du tableau
-        newAnimaux[animaux.length] = animal;
-
-        //On change reference mais ancien tableau perdu et plus accessible... le ramasse miette de java va liberer la memoire
-        animaux = newAnimaux;
-    }
     public void mangerDansLaSavane() {
         for (Animal animal : animaux) {
             animal.manger();
@@ -29,6 +21,35 @@ public class Savane {
         for (Animal animal : animaux) {
             animal.dormir();
         }
+    }
+
+    public void retirerAnimal(Animal animal) {
+        List<Animal> nouvelleListe = new ArrayList<>(Arrays.asList(animaux));
+        nouvelleListe.remove(animal);
+        animaux = nouvelleListe.toArray(new Animal[0]);
+    }
+
+    public void ajouterAnimal(Animal animal) {
+        List<Animal> nouvelleListe = new ArrayList<>(Arrays.asList(animaux));
+        nouvelleListe.add(animal);
+        animaux = nouvelleListe.toArray(new Animal[0]);
+    }
+
+    public void rencontrer() {
+        Random random = new Random();
+
+        // Sélectionner deux indices aléatoires
+        int index1 = random.nextInt(animaux.length);
+        int index2;
+        do {
+            index2 = random.nextInt(animaux.length);
+        } while (index1 == index2); // Assurer que les indices sont différents
+
+        // Faire se rencontrer les deux animaux
+        Animal animal1 = animaux[index1];
+        Animal animal2 = animaux[index2];
+
+        animal1.rencontrer(animal2, this);
     }
 
 
