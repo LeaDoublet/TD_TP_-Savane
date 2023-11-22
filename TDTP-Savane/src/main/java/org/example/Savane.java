@@ -1,15 +1,13 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class Savane {
 
-    Animal[] animaux;
+    ArrayList<Animal> animaux;
     public Savane(ArrayList<Animal> animals) {
-        this.animaux = animals.toArray(new Animal[0]);
+        this.animaux = animals;
     }
 
     public void mangerDansLaSavane() {
@@ -24,30 +22,26 @@ public class Savane {
     }
 
     public void retirerAnimal(Animal animal) {
-        List<Animal> nouvelleListe = new ArrayList<>(Arrays.asList(animaux));
-        nouvelleListe.remove(animal);
-        animaux = nouvelleListe.toArray(new Animal[0]);
+        animaux.remove(animal);
     }
 
     public void ajouterAnimal(Animal animal) {
-        List<Animal> nouvelleListe = new ArrayList<>(Arrays.asList(animaux));
-        nouvelleListe.add(animal);
-        animaux = nouvelleListe.toArray(new Animal[0]);
+        animaux.add(animal);
     }
 
     public void rencontrer() {
         Random random = new Random();
 
         // Sélectionner deux indices aléatoires
-        int index1 = random.nextInt(animaux.length);
+        int index1 = random.nextInt(animaux.size());
         int index2;
         do {
-            index2 = random.nextInt(animaux.length);
+            index2 = random.nextInt(animaux.size());
         } while (index1 == index2); // Assurer que les indices sont différents
 
         // Faire se rencontrer les deux animaux
-        Animal animal1 = animaux[index1];
-        Animal animal2 = animaux[index2];
+        Animal animal1 = animaux.get(index1);
+        Animal animal2 = animaux.get(index2);
 
         animal1.rencontrer(animal2, this);
     }
