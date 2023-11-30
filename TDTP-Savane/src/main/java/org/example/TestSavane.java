@@ -31,8 +31,14 @@ public class TestSavane {
         savane.dormirDansLaSavane();
 
         System.out.println("#########################################");
-        System.out.println("#       BATTLE ROYALE 5O ANIMAUX        #");
+        System.out.println("#       BATTLE ROYALE 1O ANIMAUX        #");
         System.out.println("##########################################");
+
+        for(int i = animaux.size();i>0;i--){
+            savane.rencontrer();
+        }
+
+
 
 
     }

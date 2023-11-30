@@ -18,7 +18,7 @@ public class Zebre extends Animal{
                 // Deux zèbres de sexes opposés donnent naissance à un zèbre
                 System.out.println("Naissance d'un zèbre : " + this.nom + " et " + autreAnimal.nom);
                 String nomEnfant = this.nom + autreAnimal.nom + "_child";
-                String sexeEnfant = Math.random() < 0.5 ? "Male" : "Female";
+                String sexeEnfant = Math.random() < 0.5 ? "Masc" : "Fem";
                 Sexe sex = Sexe.valueOf(sexeEnfant);
                 Zebre enfant = new Zebre(nomEnfant, sex);
                 savane.ajouterAnimal(enfant);

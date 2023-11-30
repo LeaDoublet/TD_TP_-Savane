@@ -9,8 +9,5 @@
         <module name="TDTP-Savane" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="TDTP-Savane" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

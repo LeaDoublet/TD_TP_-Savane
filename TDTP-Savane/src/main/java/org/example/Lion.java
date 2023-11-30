@@ -45,7 +45,7 @@ public class Lion extends Animal{
                 // Deux lions de sexes différents donnent naissance à un lion
                 System.out.println("Naissance d'un lion : " + this.nom + " et " + autreAnimal.nom);
                 String nomEnfant = this.nom + autreAnimal.nom + "_child";
-                String sexeEnfant = Math.random() < 0.5 ? "Male" : "Female";
+                String sexeEnfant = Math.random() < 0.5 ? "Masc" : "Fem";
                 Sexe sexe1 = Sexe.valueOf(sexeEnfant);
                 Lion enfant = new Lion(nomEnfant, sexe1);
                 savane.ajouterAnimal(enfant);
